@@ -4,12 +4,15 @@ When maintaining a calendar of events, it is important to know if an event overl
 Given a sequence of events, each having a start and end time, write a program that will return the sequence of all pairs of overlapping events.
 
 ## Usage
+```javascript
 node double-booked
+```
 
 ## Notes
 By default the program generates 15 events (meetings).
 
 ## Sample Output
+```javascript
 -------------------------------------------
 { meeting: 'Stand-up meeting with Brian',
   start: 2019-04-30T11:24:03.655Z,
@@ -29,3 +32,4 @@ By default the program generates 15 events (meetings).
 
 Meeting Generated : 15
 Overlap Found: : 13
+```
