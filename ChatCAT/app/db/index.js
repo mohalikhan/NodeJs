@@ -1,12 +1,23 @@
 'use strict';
 const config = require('../config');
 const logger = require('../logger');
-const Mongoose = require('mongoose').connect(config.dbURI);
+const Mongoose = require('mongoose');
 
-// Log an error if the connection fails
-Mongoose.connection.on('error', error => {
-	logger.log('error', 'Mongoose connection error: ' + error);
+Mongoose.Promise = global.Promise;
+
+Mongoose.connect(config.dbURI, { useNewUrlParser: true } , (err)=>{
+	if (err) {
+		console.log(err);
+	}
+	else {
+		console.log('Database Connected')
+	}
 });
+
+// // Log an error if the connection fails
+// Mongoose.connection.on('error', error => {
+// 	console.log('error', 'Mongoose connection error: ' + error);
+// });
 
 // Create a Schema that defines the structure for storing user data
 const chatUser = new Mongoose.Schema({
