@@ -1,0 +1,40 @@
+<!doctype html></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test COR Api</title>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        $(document).on('click', '.button1', function(e){
+            $.ajax({
+                url: 'http://torwdmoali01.intelex.com/QATest2/api/v2/object/SysEmployeeEntity',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader ("Authorization", "Basic " + btoa('Intelex\\Administrator' + ":" + 'Administrator'));
+                },
+                type: 'GET',
+                success: function (data) {
+					alert('Employee Data Received Count: ' + data.value.length);
+				}
+            })
+        })
+        $(document).on('click', '.button2', function(e){
+            $.ajax({
+                url: 'http://torwdmoali01.intelex.com/QATest/api/v2/object/SysEmployeeEntity',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader ("Authorization", "Basic " + btoa('Intelex\\Administrator' + ":" + 'Administrator'));
+                },
+                type: 'GET',
+                success: function (data) {
+					alert('Employee Data Received Count: ' + data.value.length);
+				}
+            })
+        })
+    </script>
+</head>
+<body>
+	<div class="container">
+        <label>Test COR API</label><br><br>
+        <button class="button1">Test Button 1 with COR Allowed</button><br><br>
+        <button class="button2">Test Button 2 with COR *.intelex.com </button><br><br>
+    </div>
+</body>
